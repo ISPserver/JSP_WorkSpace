@@ -13,11 +13,11 @@
 								//매개변수로는 파라미터 변수명을 명시, 만일 html 이용할경우
 								//컴포넌트에 부여한 name 값을 명시
 	String pass = request.getParameter("pass");
-	out.print("현재 클라이언트의 요청 방식은"+request.getMethod());
-	out.print("<br>");
-	out.print("클라이언트가 전송한 id는" + id);
-	out.print("<br>");
-	out.print("클라이언트가 전송한 id는" + pass);
+	//out.print("현재 클라이언트의 요청 방식은"+request.getMethod());
+	//out.print("<br>");
+	//out.print("클라이언트가 전송한 id는" + id);
+	//out.print("<br>");
+	//out.print("클라이언트가 전송한 id는" + pass);
 
 	//드라이버 로드
 	//모든 jar 파일은 javaEE기반의 스펙을 따라서, 위치시켜야 한다.
