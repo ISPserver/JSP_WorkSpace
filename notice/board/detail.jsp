@@ -66,13 +66,28 @@ POST : Http 프로토콜에서 바디영역에 데이터를 실어 나른다. �
 	  현실비유) 편지지에 데이터를 숨겨 보내는 꼴이다.
 */
 $(function(){
-	$("input[type='button']").click(function(){
-		//입력방식을 서버에 전송
+	$($("input[type='button']")[0]).click(function(){//목록으로
+		location.href="/board/list.jsp";
+	});
+
+	$($("input[type='button']")[1]).click(function(){//수정요청
+		if(confirm("수정하시겠습니까?")){
 		$("form").attr({
 			method:"post",
-			action:"/board/regist.jsp"
+			action:"/board/edit.jsp"
 		});
 		$("form").submit();//전송 행위
+		}
+	});
+
+	$($("input[type='button']")[2]).click(function(){//삭제요청
+		if(confirm("삭제하시겠습니까?")){
+		$("form").attr({
+			method:"post",
+			action:"/board/delete.jsp"
+		});
+		$("form").submit();//전송 행위
+		}
 	});
 });
 </script>
@@ -81,6 +96,7 @@ $(function(){
 
 <div class="container">
   <form>
+  	<input type="hidden" name="notice_id" value="<%=rs.getInt("notice_id")%>">
     <label for="fname">First Name</label>
     <input type="text" id="fname" name="author" value="<%=rs.getString("author")%>">
 
@@ -90,11 +106,14 @@ $(function(){
     <label for="subject">Content</label>
     <textarea id="subject" name="content" placeholder="Write something.." style="height:200px"><%=rs.getString("content")%></textarea>
 
-    <input type="button" value="전송">
+    <input type="button" value="목록으로">
+    <input type="button" value="수정하기">
+    <input type="button" value="삭제하기">
+
   </form>
 </div>
 <div style="text-align:center">
-Copyright All reserved java board
+	<%@ include file="/inc/footer.jsp"%>
 </div>
 </body>
 </html>
